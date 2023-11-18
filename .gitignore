@@ -37,3 +37,6 @@ next-env.d.ts
 
 @settings
 .env
+
+@media
+/public/resources

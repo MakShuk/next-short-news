@@ -1,18 +1,20 @@
-import Image from "next/image";
-import GitHubLink from "./components/link/git-hub";
-import NewsCard from "./components/card/news";
-import { getNews } from "@/lib/get-news";
-import Link from "next/link";
-import { getImageUrl } from "@/lib/get-image-url";
-import PaginationMainPage from "./components/pagination/pagination";
-import { useRouter } from "next/router";
-import React from "react";
+"use client";
 
-export default async function Home() {
-   const data = await getNews(10); 
-//  const [currentPage, setCurrentPage] = React.useState(1);
-   const router = useRouter();
- //  const { hello, page } = router.query; 
+import React from "react";
+import { getNews } from "@/lib/get-news";
+import { getImageUrl } from "@/lib/get-image-url";
+import NewsCard from "../components/card/news";
+import PaginationMainPage from "../components/pagination/pagination";
+
+
+import { useRouter } from 'next/router';
+
+
+
+export default function MainArea() {
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const router = useRouter();
+  const { hello, page } = router.query;
 
   return (
     <main className="gap-3 grid grid-cols-1 sm:grid-cols-2 bg-white dark:bg-black justify-center p-3">
@@ -33,7 +35,7 @@ export default async function Home() {
           />
         );
       })} */}
-      <PaginationMainPage></PaginationMainPage>
+      <p>Query string: {hello}</p>;<PaginationMainPage></PaginationMainPage>
     </main>
   );
 }

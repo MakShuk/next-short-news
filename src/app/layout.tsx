@@ -12,17 +12,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+/*   main, */
   header,
 }: {
   children: React.ReactNode;
+ /*  main: React.ReactNode; */
   header: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className="dark" style={{ colorScheme: "dark" }}>
-      <body className={inter.className}>
+    <html lang="ru" className="light" style={{ colorScheme: "light" }}>
+      <body className={inter.className + " max-w-[1024px] m-auto"}>
         <ThemesProviders>
           <NextUIProviders>
             {header}
+            {/*    {main} */}
             {children}
           </NextUIProviders>
         </ThemesProviders>

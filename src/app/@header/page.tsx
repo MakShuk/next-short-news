@@ -1,15 +1,14 @@
 import React from "react";
+import GitHubLink from "../components/link/git-hub";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
-  Button,
 } from "@nextui-org/react";
 import SwitchTheme from "../components/buttons/switch-theme";
 
-export default function App() {
+export default function HeaderArea() {
   return (
     <Navbar shouldHideOnScroll className="bg-white dark:bg-black">
       <NavbarBrand>
@@ -20,6 +19,9 @@ export default function App() {
       <NavbarContent justify="end">
         <NavbarItem>
           <SwitchTheme />
+        </NavbarItem>
+        <NavbarItem>
+          <GitHubLink />
         </NavbarItem>
       </NavbarContent>
     </Navbar>
