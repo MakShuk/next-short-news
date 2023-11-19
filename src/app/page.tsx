@@ -9,9 +9,9 @@ import { useRouter } from "next/router";
 import React from "react";
 
 export default async function Home() {
-   const data = await getNews(10); 
+   //const data = await getNews(10); 
 //  const [currentPage, setCurrentPage] = React.useState(1);
-   const router = useRouter();
+   //const router = useRouter();
  //  const { hello, page } = router.query; 
 
   return (
