@@ -34,7 +34,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
       </CardHeader>
       <CardBody className="overflow-visible py-2 grid align-super">
         <h4 className="font-bold pb-2">{data.title}</h4>
-        <ul>
+        {/*    <ul>
           {data.content.map((el, i) => {
             return (
               <li key={i} className="mb-2">
@@ -42,7 +42,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </CardBody>
     </Card>
   );
