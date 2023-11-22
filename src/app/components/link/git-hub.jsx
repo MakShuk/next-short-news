@@ -1,6 +1,5 @@
 import { Link, Image } from "@nextui-org/react";
 import React from "react";
-import git from "../../../../public/github.svg";
 
 const GitHubLink = () => {
   return (

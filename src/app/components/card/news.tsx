@@ -3,10 +3,10 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Image,
-  Button,
+  useDisclosure,
 } from "@nextui-org/react";
+import CardModal from "../modal/card-modal";
 
 interface NewsCardProps {
   data: {
@@ -18,10 +18,12 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
-    <Card className="">
+    <Card className="" onClick={onOpen} isPressable>
       <CardHeader className="p-0">
         <Image
+          isBlurred
           alt="Card background"
           className="rounded-none"
           src={data.imageUrl}
@@ -34,15 +36,12 @@ const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
       </CardHeader>
       <CardBody className="overflow-visible py-2 grid align-super">
         <h4 className="font-bold pb-2">{data.title}</h4>
-        {/*    <ul>
-          {data.content.map((el, i) => {
-            return (
-              <li key={i} className="mb-2">
-                -{el}
-              </li>
-            );
-          })}
-        </ul> */}
+        <CardModal
+          title={data.title}
+          content={data.content}
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+        />
       </CardBody>
     </Card>
   );

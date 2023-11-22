@@ -5,8 +5,8 @@ export function getImageUrl(
 ) {
   const splitResource = resourceName.split(".")[0] || resourceName;
   const fileExtension = extractFileExtension(imageUrl);
- // return `http://localhost:3001/file/img?folder=${splitResource}&id=${id}&ex=${fileExtension}`;
- return `resources/${splitResource}/${id}.${fileExtension}`;
+  // return `http://localhost:3001/file/img?folder=${splitResource}&id=${id}&ex=${fileExtension}`;
+  return `resources/${splitResource}/${id}.${fileExtension}`;
 }
 
 function extractFileExtension(url: string): string | null {
