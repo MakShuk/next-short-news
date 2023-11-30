@@ -9,7 +9,7 @@ export function NextUIProviders({ children }: { children: React.ReactNode }) {
 
 export function ThemesProviders({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" enableSystem={true}>
+    <ThemeProvider attribute="class" enableSystem={true} defaultTheme='dark'>
       {children}
     </ThemeProvider>
   );

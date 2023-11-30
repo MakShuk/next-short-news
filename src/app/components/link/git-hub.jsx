@@ -7,8 +7,8 @@ const GitHubLink = () => {
       <Image
         alt="git"
         src="/github.svg"
-        width={30}
-        height={30}
+        width={28}
+        height={28}
         className="dark:invert"
       />
     </Link>

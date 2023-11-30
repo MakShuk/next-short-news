@@ -16,10 +16,7 @@ const fetcher = (...args: [RequestInfo, RequestInit?]) =>
 
 function myMiddleware(useSWRNext: (arg0: any, arg1: any, arg2: any) => any) {
   return (key: any, fetcher: any, config: any) => {
-    // До выполнения хука...
     const swr = useSWRNext(key, fetcher, config);
-    console.log("SWR запрос:", key());
-    // После выполнения хука...
     return swr;
   };
 }
@@ -52,8 +49,11 @@ export function useInfinitePost(limit: number, offset: number) {
 
   const { data, size, setSize, isLoading, error, isValidating } =
     useSWRInfinite(getKey, fetcher, {
-      initialSize: 1,
+      initialSize: 2,
       use: [myMiddleware],
+      dedupingInterval: 2000,
+      focusThrottleInterval: 3000,
+      revalidateFirstPage: false,
     });
   const posts: INews[] = data || [];
   return {

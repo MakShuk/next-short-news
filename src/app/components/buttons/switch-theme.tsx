@@ -19,7 +19,7 @@ const SwitchTheme = () => {
       aria-label="Toggle Dark Mode"
       type="button"
       className="flex items-center justify-center rounded-lg p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-700"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "dark" ? (
         <SunIcon className="h-5 w-5 text-white" />

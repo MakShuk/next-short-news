@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { NextUIProviders, ThemesProviders } from "./providers";
+import { useRouter } from "next/navigation";
 
-const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["cyrillic"] });
 
 export const metadata: Metadata = {
   title: "short.news",
@@ -12,20 +13,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-/*   main, */
+  modal,
   header,
 }: {
   children: React.ReactNode;
- /*  main: React.ReactNode; */
+  modal: React.ReactNode;
   header: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className="light" style={{ colorScheme: "light" }}>
-      <body className={inter.className + " max-w-[1024px] m-auto"}>
+    <html lang="ru" className="dark" style={{ colorScheme: "dark" }}>
+      <body className={manrope.className + " max-w-[1024px] m-auto"}>
         <ThemesProviders>
           <NextUIProviders>
-            {header}
-            {/*    {main} */}
+            {/*          {modal} */}
+            {/*             {header} */}
             {children}
           </NextUIProviders>
         </ThemesProviders>
