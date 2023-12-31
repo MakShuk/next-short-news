@@ -1,12 +1,12 @@
 import React from "react";
-import GitHubLink from "../components/link/git-hub";
+import GitHubLink from "../../components/link/git-hub";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/react";
-import SwitchTheme from "../components/buttons/switch-theme";
+import SwitchTheme from "@/app/components/buttons/switch-theme";
 
 export default function HeaderArea() {
   return (

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { NextUIProviders, ThemesProviders } from "./providers";
-import { useRouter } from "next/navigation";
 
 const manrope = Manrope({ subsets: ["cyrillic"] });
 
@@ -22,11 +21,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" className="dark" style={{ colorScheme: "dark" }}>
-      <body className={manrope.className + " max-w-[1024px] m-auto"}>
+      <body
+        className={
+          manrope.className + " max-w-[1024px] m-auto bg-white dark:bg-black"
+        }
+      >
         <ThemesProviders>
           <NextUIProviders>
             {/*          {modal} */}
-            {/*             {header} */}
+            {/*     {header} */}
             {children}
           </NextUIProviders>
         </ThemesProviders>

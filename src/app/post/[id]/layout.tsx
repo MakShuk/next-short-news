@@ -13,6 +13,5 @@ export default function PhotoLayout(data: {
   modal: React.ReactNode;
   header: React.ReactNode;
 }) {
-  console.log(data.children);
   return data.children;
 }

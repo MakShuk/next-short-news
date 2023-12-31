@@ -11,28 +11,28 @@ import {
   Link,
 } from "@nextui-org/react";
 
+import { useRouter } from "next/navigation";
 interface ModaCardProps {
   title: string;
   originalUrl: string;
   content: string[];
   isOpen: boolean;
-  onOpenChange: () => void;
 }
 
 export default function CardModal({
   title,
   content,
   isOpen,
-  onOpenChange,
   originalUrl,
 }: ModaCardProps) {
+  const router = useRouter();
   return (
     <>
       <Modal
         isOpen={isOpen}
         scrollBehavior="outside"
         placement="auto"
-        onOpenChange={onOpenChange}
+        onOpenChange={() => router.back()}
         backdrop="blur"
         classNames={{
           body: "py-1",
@@ -82,7 +82,11 @@ export default function CardModal({
                     </svg>
                   </Link>
                 </Button>
-                <Button color="danger" variant="flat" onPress={onClose}>
+                <Button
+                  color="danger"
+                  variant="flat"
+                  onClick={() => router.back()}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
