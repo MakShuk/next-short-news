@@ -1,21 +1,20 @@
-'use client'
+'use client';
 
-import { useRouter } from 'next/navigation'
-import React from 'react'
+import { useRouter } from 'next/navigation';
+import React from 'react';
 
 const ButtonCloseModal = (): React.JSX.Element => {
-  const router = useRouter()
+	const router = useRouter();
+	return (
+		<div
+			onClick={() => {
+				router.back();
+			}}
+			className="absolute top-4 right-4 cursor-pointer"
+		>
+			X
+		</div>
+	);
+};
 
-  return (
-    <div
-      onClick={() => {
-        router.back()
-      }}
-      className="absolute top-4 right-4 cursor-pointer"
-    >
-      X
-    </div>
-  )
-}
-
-export default ButtonCloseModal
+export default ButtonCloseModal;
