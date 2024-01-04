@@ -5,6 +5,7 @@ import { getImageUrl } from "@/lib/get-image-url";
 import Link from "next/link";
 import ProgressIndicators from "../components/progress/progress-indicators";
 import NewsCard from "../components/card/news";
+import ErrorLoadingPost from '../components/errors/error-laod';
 
 export default function Home() {
   const { posts, isLoading, isError, setSize, size, isValidating } =
@@ -39,7 +40,7 @@ export default function Home() {
   }, [size, setSize, isLoading, isValidating, shouldSendRequest]); 
 
   if (isLoading) return <ProgressIndicators />;
-  if (isError) return <div>failed to load</div>;
+  if (isError) return <ErrorLoadingPost />;
 
   return (
     <main className="">

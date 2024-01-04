@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getImageUrl } from "@/lib/get-image-url";
 import { Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
+import ErrorLoadingPost from '@/app/components/errors/error-laod';
 
 export interface PostDetailProps {
   params: {
@@ -14,15 +15,15 @@ export interface PostDetailProps {
 }
 
 const PhotoDetail: FC<PostDetailProps> = ({ params }) => {
-  const { post, isLoading, isError, isValidating } = usePost(+params.id);
+  const currentPostID = Number(params.id);
+  const { post, isLoading, isError, isValidating } = usePost(currentPostID);
   const router = useRouter();
 
   if (isLoading) return <ProgressIndicators />;
-  if (isError) return <div>failed to load</div>;
-  console.log(post);
+  if (isError) return <ErrorLoadingPost />;
+
   const { id, content, title, originalUrl, imageUrl, resourceName } = post;
   const apiImageUrl = getImageUrl(id, imageUrl, resourceName);
-  console.log(apiImageUrl);
 
   return (
     <div className="max-w-[524px] m-auto grid md:grid-cols-1 place-items-center gap-0 bg-white dark:bg-black text-black dark:text-neutral-300">
