@@ -39,7 +39,7 @@ export default function CardModal({ title, content, isOpen, originalUrl }: ModaC
 				}}
 			>
 				<ModalContent>
-					{onClose => (
+					{() => (
 						<>
 							<ModalHeader>{title}</ModalHeader>
 							<ModalBody>

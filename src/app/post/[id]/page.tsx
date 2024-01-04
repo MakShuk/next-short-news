@@ -16,13 +16,13 @@ export interface PostDetailProps {
 
 const PhotoDetail: FC<PostDetailProps> = ({ params }) => {
 	const currentPostID = Number(params.id);
-	const { post, isLoading, isError, isValidating } = usePost(currentPostID);
+	const { post, isLoading, isError } = usePost(currentPostID);
 	const router = useRouter();
 
 	if (isLoading) return <ProgressIndicators />;
 	if (isError) return <ErrorLoadingPost />;
 
-	const { id, content, title, originalUrl, imageUrl, resourceName } = post;
+	const { id, content, title, imageUrl, resourceName } = post;
 	const apiImageUrl = getImageUrl(id, imageUrl, resourceName);
 
 	return (

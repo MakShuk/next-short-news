@@ -6,7 +6,13 @@ import { INews } from '@/lib/get-news';
 import { FC } from 'react';
 import { useSWRConfig } from 'swr';
 
-const ModalPage: FC<any> = ({ params }) => {
+interface ModalPageProps {
+	params: {
+		id: string;
+	};
+}
+
+const ModalPage: FC<ModalPageProps> = ({ params }) => {
 	const { cache } = useSWRConfig();
 	console.log(cache);
 

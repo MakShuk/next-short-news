@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import useSWR from 'swr';
 import useSWRInfinite from 'swr/infinite';
@@ -36,7 +37,7 @@ export function usePost(id: number) {
 }
 
 export function useInfinitePost(limit: number, offset: number) {
-	const getKey = (pageIndex: any, previousPageData: any) => {
+	const getKey = (pageIndex: number, previousPageData: []) => {
 		if (previousPageData && !previousPageData.length) return null;
 		return `http://192.168.0.5:3001/posts/last-posts?limit=${limit}&offset=${offset * pageIndex}`;
 	};
