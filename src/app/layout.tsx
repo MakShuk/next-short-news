@@ -7,7 +7,7 @@ const manrope = Manrope({ subsets: ['cyrillic'] });
 
 export const metadata: Metadata = {
 	title: 'short.news',
-	description: 'Коротние новости со всего мира',
+	description: 'Короткие новости со всего мира',
 };
 
 export default function RootLayout({

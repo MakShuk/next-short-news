@@ -14,11 +14,9 @@ interface ModalPageProps {
 
 const ModalPage: FC<ModalPageProps> = ({ params }) => {
 	const { cache } = useSWRConfig();
-	console.log(cache);
 
-	const posts = cache
-		.get('$inf$http://192.168.0.5:3001/posts/last-posts?limit=6&offset=0')
-		?.data.flat() as INews[];
+	const url = '$inf$http://192.168.0.8:3001/posts/last-posts?limit=6&offset=0';
+	const posts = cache.get(url)?.data.flat() as INews[];
 
 	const post = posts.find(obj => obj.id === +params.id);
 

@@ -23,7 +23,7 @@ function myMiddleware(useSWRNext: (arg0: any, arg1: any, arg2: any) => any) {
 
 export function usePost(id: number) {
 	const { data, error, isLoading, isValidating } = useSWR(
-		`http://192.168.0.5:3001/posts?id=${id}`,
+		`http://192.168.0.8:3001/posts?id=${id}`,
 		fetcher,
 	);
 	const post: INews = data;
@@ -39,7 +39,7 @@ export function usePost(id: number) {
 export function useInfinitePost(limit: number, offset: number) {
 	const getKey = (pageIndex: number, previousPageData: []) => {
 		if (previousPageData && !previousPageData.length) return null;
-		return `http://192.168.0.5:3001/posts/last-posts?limit=${limit}&offset=${offset * pageIndex}`;
+		return `http://192.168.0.8:3001/posts/last-posts?limit=${limit}&offset=${offset * pageIndex}`;
 	};
 
 	const { data, size, setSize, isLoading, error, isValidating } = useSWRInfinite(getKey, fetcher, {
