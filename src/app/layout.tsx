@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-
+import { Manrope } from 'next/font/google';
 import './globals.css';
 import { NextUIProviders, ThemesProviders } from './providers';
 
-
+const manrope = Manrope({ subsets: ['cyrillic'] });
 
 export const metadata: Metadata = {
 	title: 'short.news',
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="ru" className="dark" style={{ colorScheme: 'dark' }}>
-			<body className={' max-w-[1024px] m-auto bg-white dark:bg-black'}>
+				<body className={manrope.className + ' max-w-[1024px] m-auto bg-white dark:bg-black'}>
 				<ThemesProviders>
 					<NextUIProviders>
 						{children}
