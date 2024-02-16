@@ -9,11 +9,14 @@ export interface INews {
 	content: string[];
 	imageUrl: string;
 	resourceName: string;
+	imagePath: string;
 }
 
 const fetcher = (...args: [RequestInfo, RequestInit?]) => fetch(...args).then(res => res.json());
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function myMiddleware(useSWRNext: (arg0: any, arg1: any, arg2: any) => any) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	return (key: any, fetcher: any, config: any) => {
 		const swr = useSWRNext(key, fetcher, config);
 		return swr;

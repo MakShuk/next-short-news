@@ -1,0 +1,9 @@
+{
+	"cSpell.words": ["deduping", "heroicons", "linebreak", "nextui", "nums", "Parens"],
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	}
+}

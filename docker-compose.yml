@@ -8,6 +8,8 @@ services:
     container_name: short-news
     ports:
       - 3000:3000
+    volumes:
+      - C:\\development\\NextJS\\next-short-news\\public:/opt/app/public
     restart: always
     networks:
       - home

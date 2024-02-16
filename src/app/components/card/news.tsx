@@ -12,6 +12,7 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ data }) => {
+	console.log(data);
 	return (
 		<Card className="flex flex-col h-full w-full">
 			<CardHeader className="p-0">

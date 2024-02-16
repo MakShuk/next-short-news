@@ -12,14 +12,14 @@ import {
 } from '@nextui-org/react';
 
 import { useRouter } from 'next/navigation';
-interface ModaCardProps {
+interface ModalCardProps {
 	title: string;
 	originalUrl: string;
 	content: string[];
 	isOpen: boolean;
 }
 
-export default function CardModal({ title, content, isOpen, originalUrl }: ModaCardProps) {
+export default function CardModal({ title, content, isOpen, originalUrl }: ModalCardProps) {
 	const router = useRouter();
 	return (
 		<>
@@ -30,10 +30,10 @@ export default function CardModal({ title, content, isOpen, originalUrl }: ModaC
 				onOpenChange={() => router.back()}
 				backdrop="blur"
 				classNames={{
-					body: 'py-1',
+					body: 'py-1 ml-2',
 					backdrop: 'bg-[#292f46]/50 backdrop-opacity-40',
 					base: 'decoration-black text-black dark:text-neutral-300',
-					header: 'border-b-[1px]  border-[#c3c5c9]  dark:border-[#414142] py-2',
+					header: 'border-b-[1px]  border-[#c3c5c9]  dark:border-[#414142] py-2 text-center',
 					footer: 'border-t-[1px] border-[#c3c5c9] dark:border-[#414142] grid grid-cols-2 py-2',
 					closeButton: 'hover:bg-white/5 active:bg-white/10',
 				}}
@@ -47,7 +47,7 @@ export default function CardModal({ title, content, isOpen, originalUrl }: ModaC
 									{content.map((el, i) => {
 										return (
 											<li key={i} className="mb-0.5">
-												✔️ {el}
+												{el}
 											</li>
 										);
 									})}

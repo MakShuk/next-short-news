@@ -1,11 +1,10 @@
 'use client';
 import { INews, useInfinitePost } from '@/lib/get-news';
 import React, { useEffect, useRef, useState } from 'react';
-import { getImageUrl } from '@/lib/get-image-url';
 import Link from 'next/link';
 import ProgressIndicators from '../components/progress/progress-indicators';
 import NewsCard from '../components/card/news';
-import ErrorLoadingPost from '../components/errors/error-laod';
+import ErrorLoadingPost from '../components/errors/error-load';
 
 export default function Home() {
 	const { posts, isLoading, isError, setSize, size, isValidating } = useInfinitePost(6, 6);
@@ -45,8 +44,10 @@ export default function Home() {
 				className="gap-3 grid grid-cols-1 sm:grid-cols-2 bg-white dark:bg-black justify-center p-3"
 			>
 				{posts.flat().map((news: INews) => {
-					const { id, content, title, originalUrl, imageUrl, resourceName } = news;
-					const apiImageUrl = getImageUrl(id, imageUrl, resourceName);
+					const { id, content, title, originalUrl, imagePath } = news;
+
+					const imageLoader = `http://192.168.0.8:3001/file/img?path=${imagePath}`;
+
 					if (content.length <= 1) return null;
 					return (
 						<Link
@@ -63,7 +64,7 @@ export default function Home() {
 										title,
 										content,
 										originalUrl,
-										imageUrl: apiImageUrl,
+										imageUrl: imageLoader,
 									}}
 								/>
 							}
@@ -71,11 +72,6 @@ export default function Home() {
 					);
 				})}
 			</div>
-			{/*  <InfiniteLoading size={size} setSize={setSize} /> */}
-			{/*      <PaginationMainPage
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      /> */}
 		</main>
 	);
 }

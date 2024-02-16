@@ -10,18 +10,12 @@ export const metadata: Metadata = {
 	description: 'Короткие новости со всего мира',
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="ru" className="dark" style={{ colorScheme: 'dark' }}>
-				<body className={manrope.className + ' max-w-[1024px] m-auto bg-white dark:bg-black'}>
+			<body className={manrope.className + ' max-w-[1024px] m-auto bg-white dark:bg-black'}>
 				<ThemesProviders>
-					<NextUIProviders>
-						{children}
-					</NextUIProviders>
+					<NextUIProviders>{children}</NextUIProviders>
 				</ThemesProviders>
 			</body>
 		</html>

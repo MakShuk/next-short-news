@@ -5,8 +5,6 @@ export const metadata: Metadata = {
 	description: 'Короткие новости со всего мира',
 };
 
-export default function PhotoLayout(data: {
-	children: React.ReactNode;
-}) {
+export default function PhotoLayout(data: { children: React.ReactNode }) {
 	return data.children;
 }
