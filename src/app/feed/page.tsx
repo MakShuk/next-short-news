@@ -46,7 +46,7 @@ export default function Home() {
 				{posts.flat().map((news: INews) => {
 					const { id, content, title, originalUrl, imagePath } = news;
 
-					const imageLoader = `http://192.168.0.8:3001/file/img?path=${imagePath}`;
+					const imageUrl = `http://192.168.0.8:3001/file/img?path=${imagePath}`;
 
 					if (content.length <= 1) return null;
 					return (
@@ -64,7 +64,7 @@ export default function Home() {
 										title,
 										content,
 										originalUrl,
-										imageUrl: imageLoader,
+										imageUrl,
 									}}
 								/>
 							}

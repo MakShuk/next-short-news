@@ -22,20 +22,17 @@ const PhotoDetail: FC<PostDetailProps> = ({ params }) => {
 	if (isError) return <ErrorLoadingPost />;
 
 	const { content, title, imagePath } = post;
-	const fileName = imagePath.split('/').pop() || 'default.jpg';
-	const imageLoader = () => {
-		return `http://192.168.0.8:3001/file/img?path=${imagePath}`;
-	};
+
+	const scrImage = `http://192.168.0.8:3001/file/img?path=${imagePath}`;
 
 	return (
 		<div className="max-w-[524px] m-auto grid md:grid-cols-1 place-items-center gap-0 bg-white dark:bg-black text-black dark:text-neutral-300">
 			<div className="relative h-40 w-full">
 				<Image
-					src={fileName}
-					loader={imageLoader}
+					src={scrImage}
 					alt={title}
 					quality={50}
-					placeholder="blur" // "empty" | "blur" | "data:image/..."
+					placeholder="empty"
 					fill={true}
 					className="m-0 rounded-b"
 					style={{

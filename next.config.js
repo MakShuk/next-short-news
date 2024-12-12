@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ['cdn.lifehacker.ru', 'habrastorage.org', 'rozetked.me'],
+		remotePatterns: [
+			{
+				protocol: 'http',
+				hostname: '192.168.0.8',
+				port: '3001',
+				pathname: '/file/img/**',
+			},
+		],
 	},
 };
 module.exports = nextConfig;
